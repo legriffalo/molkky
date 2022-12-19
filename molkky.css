@@ -67,9 +67,11 @@ overflow-y: hidden;
 }
 
 
-.instructions{
+.instruction{
     width:50vw;
-}
+    display:block;
+    margin-bottom: 5vh;
+  }
 
 .loser{
     color:red !important;

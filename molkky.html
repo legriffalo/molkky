@@ -89,7 +89,7 @@ function calculate(){
     els.forEach(element=>{
         els2.push(parseInt(element.value))
         element.classList.remove('loser')})
-    //console.log(els2);
+    
     //console.log(els2.toString())
     if(els2.toString().includes('0,0,0')){
         sum = '&#128128; OUT &#128128;';
@@ -109,20 +109,28 @@ function calculate(){
             if(sum == 50){
                 if(winner ==''){
                 winner = players[i];
-                flag = 1
+                var flag = 1;
                 while(flag){
                     popped = els2.pop()
-                    if (popped>0)
+                    if (popped > 0)
                     {flag = 0}
-                winner_length = els2.length
+                winnerLength = els2.length
                 }
-                console.log('winner is', players[i])
+                //console.log('winner is', players[i])
                 }
                 if(winner == players[i]){
                 sum = '&#127942; WINNER! &#127942;'
-                console.log(players[i]);
+                //console.log(players[i]);
                 }
                 else{
+                    var flag = 1;
+                while(flag){
+                    popped = els2.pop()
+                    //console.log(popped);
+                    if (popped >0)
+                    {flag = 0}
+                //winnerLength = els2.length
+                }
                 if(els2.length == winnerLength){
                     sum = '&#127942; WINNER! &#127942;'
                 }
@@ -141,6 +149,7 @@ function calculate(){
 
             //sum = sum + element;
         }});}
+        console.log(els2);
         document.getElementById(`score${players[i]}`).innerHTML = sum;
         //console.log(sum);
     }

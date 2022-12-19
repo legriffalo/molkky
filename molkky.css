@@ -10,7 +10,13 @@ height:0px;
 overflow-y: hidden;
 }
 
+.winner{
+  color:goldenrod;
+}
 
+.finished{
+  color:silver;
+}
 
 /* CSS */
 .control {

@@ -88,8 +88,8 @@ function calculate(){
     var els2 = []
     els.forEach(element=>{
         els2.push(parseInt(element.value))
-        element.classList.remove('loser')})
-    
+        element.classList.remove('loser')
+        element.classList.remove('winner')})
     //console.log(els2.toString())
     if(els2.toString().includes('0,0,0')){
         sum = '&#128128; OUT &#128128;';
@@ -121,7 +121,9 @@ function calculate(){
                 if(winner == players[i]){
                 sum = '&#127942; WINNER! &#127942;'
                 //console.log(players[i]);
-                }
+                els.forEach(element=>{
+            element.classList.add('winner')
+        })}
                 else{
                     var flag = 1;
                 while(flag){
@@ -133,9 +135,15 @@ function calculate(){
                 }
                 if(els2.length == winnerLength){
                     sum = '&#127942; WINNER! &#127942;'
+                    els.forEach(element=>{
+            element.classList.add('winner')
+        })
                 }
                 else{
                     sum = 'FINISHED'
+                    els.forEach(element=>{
+            element.classList.add('finished')
+        })
                 }}
 
             }

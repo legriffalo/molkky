@@ -26,7 +26,7 @@
 <button class = 'control' id="start_reset">Start Game</button>
 <div id='table'>
     <div id ='setup'>
-        <input id="player name" placeholder="add a player">
+        <input maxlength = "10" id="player name" placeholder="add a player">
         <button class = 'control' id = 'add player'>add player</button>
         </div>
     <table id = 'scores'>
@@ -157,8 +157,8 @@ function calculate(){
 
             //sum = sum + element;
         }});}
-        console.log(els2);
-        document.getElementById(`score${players[i]}`).innerHTML = sum;
+        //console.log(els2);
+        document.getElementById(`score${players[i]+i}`).innerHTML = sum;
         //console.log(sum);
     }
 }
@@ -181,23 +181,27 @@ new_player.addEventListener('click', ()=>{
     input.focus();
     //window.alert(players);
     //window.alert(players);
-    document.getElementById('top').innerHTML='<thead><th class = "hidden">Frame</th>';
+    document.getElementById('top').innerHTML='<thead><th class = "score_input hidden">Frame</th>';
     for(let i=0;i<players.length;i++){
-    document.getElementById('top').innerHTML+=`<th>${players[i]} <p id = 'score${players[i]}'</th>`;
+    document.getElementById('top').innerHTML+=`<th class = 'heads'>${players[i]} <p class ='heads' id = 'score${players[i]+i}'</th>`;
 }
 document.getElementById('top').innerHTML+='</thead>';
 })
 
 start_reset.addEventListener('click',()=>{
     //window.alert('hi');
+    var r = document.querySelector(':root');
+    r.style.setProperty('--inputwidth', `${80/(players.length+1)}vw`);
+    
+
     if (state_flag == 0){
 
     var table_string = '';
     table_string +='<tbody>';
     for(let j = 1;j<=26;j++){
-       table_string += `<tr><td>${j}</td>`
+       table_string += `<tr><td class = 'frame_no'>${j}</td>`
        for(let i=0;i<players.length;i++){
-        table_string += `<td><input type = 'number' class = 'score_input ${players[i]+i}' id = ${i}${j}></td>`;
+        table_string += `<td class = 'score_input'><input type = 'number' class = 'score_input ${players[i]+i}' id = ${i}${j}></td>`;
        }; 
        table_string += '</tr>';     
     };

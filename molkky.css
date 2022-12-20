@@ -1,7 +1,9 @@
-
+:root{
+  --inputwidth:20vw;
+  --maxfont:10vw;
+}
 #container{
   width:100vw;
-  overflow-x: hidden;
 }
 .normal_text {
     font-size:1.5em;
@@ -85,14 +87,23 @@ th{
 
 .hidden{
   height:0px;
-  width:0px;
   visibility:hidden;
   overflow-y: hidden!important;
   }
 
+  .frame_no{
+    width:10vw;
+  }
 .score_input{
-  width:fit-content;
+  max-width:var(--inputwidth);
+  
 }
-#table{
-  width:100vw;
+.heads{
+  max-width:var(--inputwidth);
 }
+#scores{
+  table-layout:fixed;
+  width:100%;
+  
+}
+

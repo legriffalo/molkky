@@ -15,14 +15,15 @@
 <div class = 'general' id = 'container'>
 <div id = 'header'>
 <h1> m&#246;lkky </h1>
-</div>
 <div id = 'menu'>
     <button class = 'main control' onclick = 'hide_show("rules"); hide_show("scoreboard");'>Show Rules</button>
 </div>
+</div>
+
 
 <!--code to build a Molkky game-->
 <div id = "scoreboard" class = "shown">
-<h1>Scoreboard</h1>
+<h3>Scoreboard</h3>
 <button class = 'control' id="start_reset">Start Game</button>
 <div id='table'>
     <div id ='setup'>
@@ -90,9 +91,10 @@ function calculate(){
         els2.push(parseInt(element.value))
         element.classList.remove('loser')
         element.classList.remove('winner')})
+        console.log(els2.toString());
     //console.log(els2.toString())
-    if(els2.toString().includes('0,0,0')){
-        sum = '&#128128; OUT &#128128;';
+    if((','+ els2.toString()).includes(',0,0,0')){
+        sum = '&#128128;';
         els.forEach(element=>{
             element.classList.add('loser')
         })
@@ -119,7 +121,7 @@ function calculate(){
                 //console.log('winner is', players[i])
                 }
                 if(winner == players[i]){
-                sum = '&#127942; WINNER! &#127942;'
+                sum = '&#127942;'
                 //console.log(players[i]);
                 els.forEach(element=>{
             element.classList.add('winner')
@@ -134,13 +136,13 @@ function calculate(){
                 //winnerLength = els2.length
                 }
                 if(els2.length == winnerLength){
-                    sum = '&#127942; WINNER! &#127942;'
+                    sum = '&#127942;'
                     els.forEach(element=>{
             element.classList.add('winner')
         })
                 }
                 else{
-                    sum = 'FINISHED'
+                    sum = 'FIN'
                     els.forEach(element=>{
             element.classList.add('finished')
         })
@@ -148,10 +150,10 @@ function calculate(){
 
             }
 
-            if(sum == 50 & winner != players[i]){
-                second = players[i];
-                sum = 'FINISHED'
-            }
+           // if(sum == 50 & winner != players[i]){
+             //   second = players[i];
+             //   sum = 'FIN'
+           // }
 
 
 
@@ -181,7 +183,7 @@ new_player.addEventListener('click', ()=>{
     input.focus();
     //window.alert(players);
     //window.alert(players);
-    document.getElementById('top').innerHTML='<thead><th class = "score_input hidden">Frame</th>';
+    document.getElementById('top').innerHTML='<thead><th class = "heads frame_no hidden">Frame</th>';
     for(let i=0;i<players.length;i++){
     document.getElementById('top').innerHTML+=`<th class = 'heads'>${players[i]} <p class ='heads' id = 'score${players[i]+i}'</th>`;
 }
@@ -191,8 +193,8 @@ document.getElementById('top').innerHTML+='</thead>';
 start_reset.addEventListener('click',()=>{
     //window.alert('hi');
     var r = document.querySelector(':root');
-    r.style.setProperty('--inputwidth', `${80/(players.length+1)}vw`);
-    
+    r.style.setProperty('--inputwidth', `${90/(players.length)}vw`);
+    r.style.setProperty('--maxfont', `${25/(players.length+1)}vw`);
 
     if (state_flag == 0){
 

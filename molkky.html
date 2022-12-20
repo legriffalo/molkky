@@ -17,7 +17,7 @@
 <h1> m&#246;lkky </h1>
 </div>
 <div id = 'menu'>
-    <button class = 'main control' onclick = 'hide_show("rules"); hide_show("scoreboard");'>Rules</button><button class = 'main control' onclick = 'hide_show("rules"); hide_show("scoreboard");';>Scoreboard</button>
+    <button class = 'main control' onclick = 'hide_show("rules"); hide_show("scoreboard");'>Show Rules</button>
 </div>
 
 <!--code to build a Molkky game-->
@@ -30,7 +30,7 @@
         <button class = 'control' id = 'add player'>add player</button>
         </div>
     <table id = 'scores'>
-         <tr id = 'top'><td>Frame</td></tr>
+         <tr id = 'top'><th class = "hidden">Frame</th></tr>
 
     </table>
     
@@ -181,7 +181,7 @@ new_player.addEventListener('click', ()=>{
     input.focus();
     //window.alert(players);
     //window.alert(players);
-    document.getElementById('top').innerHTML='<thead><th>Frame</th>';
+    document.getElementById('top').innerHTML='<thead><th class = "hidden">Frame</th>';
     for(let i=0;i<players.length;i++){
     document.getElementById('top').innerHTML+=`<th>${players[i]} <p id = 'score${players[i]}'</th>`;
 }
@@ -197,7 +197,7 @@ start_reset.addEventListener('click',()=>{
     for(let j = 1;j<=26;j++){
        table_string += `<tr><td>${j}</td>`
        for(let i=0;i<players.length;i++){
-        table_string += `<td><input type = 'number' class = ${players[i]+i} id = ${i}${j}></td>`;
+        table_string += `<td><input type = 'number' class = 'score_input ${players[i]+i}' id = ${i}${j}></td>`;
        }; 
        table_string += '</tr>';     
     };

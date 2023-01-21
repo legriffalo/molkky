@@ -27,7 +27,7 @@
 <button class = 'control' id="start_reset">Start Game</button>
 <div id='table'>
     <div id ='setup'>
-        <input maxlength = "10" id="player name" placeholder="add a player">
+        <input maxlength = "8" id="player name" placeholder="add a player">
         <button class = 'control' id = 'add player'>add player</button>
         </div>
     <table id = 'scores'>
@@ -181,6 +181,8 @@ new_player.addEventListener('click', ()=>{
     players.push(name);
     input.setSelectionRange(0, 0);
     input.focus();
+    var r = document.querySelector(':root');
+    r.style.setProperty('--maxfont', `${15/(players.length+1)}vw`);
     //window.alert(players);
     //window.alert(players);
     document.getElementById('top').innerHTML='<thead><th class = "heads frame_no hidden">Frame</th>';
@@ -194,7 +196,7 @@ start_reset.addEventListener('click',()=>{
     //window.alert('hi');
     var r = document.querySelector(':root');
     r.style.setProperty('--inputwidth', `${90/(players.length)}vw`);
-    r.style.setProperty('--maxfont', `${25/(players.length+1)}vw`);
+    //r.style.setProperty('--maxfont', `${25/(players.length+1)}vw`);
 
     if (state_flag == 0){
 
@@ -217,7 +219,7 @@ hide_show('setup');}
 
 else
 {
-    document.getElementById('scores').innerHTML = "<tr id = 'top'><td>Frame</td></tr>";
+    document.getElementById('scores').innerHTML = "<tr id = 'top'><th class = 'heads frame_no hidden'>Frame</th></tr>";
     document.getElementById('start_reset').innerHTML = '<button class = "control" id="start_reset">Start Game</button>';
     players = [];
     state_flag = 0;

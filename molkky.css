@@ -98,12 +98,11 @@ th{
   max-width:var(--inputwidth);
   width:30vw
 }
-/*.heads{
+.heads{
   max-width:var(--inputwidth);
   font-size:var(--maxfont);
-  overflow-wrap: break-word;
 }
-*/
+
 #scores{
   table-layout:fixed;
   width:100%;

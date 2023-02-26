@@ -1,6 +1,6 @@
 :root{
-  --inputwidth:20vw;
-  --maxfont:5vw;
+  inputwidth:20vw;
+  --maxfont:3vw;
 }
 #container{
   width:100vw;
@@ -94,18 +94,21 @@ th{
   .frame_no{
     width:5vw;
   }
-.score_input{
+
+.score_input_a{
   max-width:var(--inputwidth);
-  width:30vw
 }
 .heads{
   max-width:var(--inputwidth);
   font-size:var(--maxfont);
+  writing-mode:  vertical-rl;
 }
 
 #scores{
+  margin-top: 5vh;
   table-layout:fixed;
   width:100%;
+  font-size:var(--maxfont);
   /*border-style: solid;*/
 }
 
@@ -116,3 +119,7 @@ th{
 /*.score_input input{
   text-align:center!important;
 }*/
+
+h1{
+  font-size: 10vmin;
+}

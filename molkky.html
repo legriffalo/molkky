@@ -6,66 +6,82 @@
 <title> M&#246;lkky </title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 <link rel="stylesheet" href="molkky.css">
+
+<!--CDN bootsttap css -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- CDNS for jquery and popper.js required libraries for bootstrap to work -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>    
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+<!-- CDN bootstrap js -->   
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>   
 
 </head>
 
 <body>
-<div class = 'general' id = 'container'>
-<div id = 'header'>
-<h1> m&#246;lkky </h1>
-<div id = 'menu'>
-    <button class = 'main control' onclick = 'hide_show("rules"); hide_show("scoreboard");'>Show Rules</button>
-</div>
-</div>
+<div class = 'container container-fluid'>
+    <div class = 'row'>
+        <div class = 'general' id = 'container' class = 'col-sm-10 offset-md-1'>
+
+            <div id = 'header'>
+            <h1> m&#246;lkky </h1>
+            <div id = 'menu'>
+                <button class = 'main control' onclick = 'hide_show("rules"); hide_show("scoreboard");'>Show Rules</button>
+            </div>
+        
 
 
-<!--code to build a Molkky game-->
-<div id = "scoreboard" class = "shown">
-<h3>Scoreboard</h3>
-<button class = 'control' id="start_reset">Start Game</button>
-<div id='table'>
-    <div id ='setup'>
-        <input maxlength = "8" id="player name" placeholder="add a player">
-        <button class = 'control' id = 'add player'>add player</button>
+            <!--code to build a Molkky game-->
+            <div id = "scoreboard" class = "shown">
+            <h3>Scoreboard</h3>
+            <button class = 'control' id="start_reset">Start Game</button>
+            <div id='table'>
+                <div id ='setup'>
+                    <input maxlength = "8" id="player name" placeholder="add a player">
+                    <button class = 'control' id = 'add player'>add player</button>
+                    </div>
+                <table id = 'scores'>
+                    <tr id = 'top'><th class = "hidden">Frame</th></tr>
+
+                </table>
+                
+            </div>
+            </div>
+
+
+            <!-- section to share rule book-->
+            <div id= 'rules' class = 'hidden normal_text'>
+            <h1>The rules of the game</h1>
+
+            <ol>
+                <li>Set up a throwing line/mark to throw from
+                    <img class ='instruction' src ="instructions1.jpg">
+                </li>
+                <li>Set up the Molkky blocks as pictured on the bag 1.5m from you throwing line 
+                    <img class ='instruction' src ="instructions2.jpg">
+                </li>
+                <li>Take it in turns to throw the m&#246;lkky at the numbered blocks
+                    <img class ='instruction' src ="instructions3.jpg">
+                    <ul>
+                    <li>If you knock over 1 block you get the points written on it </li>
+                    <li>If you knock over multiple blocks you get a point for each blocked knocked over</li>
+                    <li>If you miss you get 0</li></ul>
+                </li>
+                <li>First to 50 exactly wins, go over 50 and you get Busted back to 25
+                    <img class ='instruction' src ="instructions4.jpg">
+                </li>
+                <li>3 misses in a row and you are out</li>
+            </ol>
+            </div>
+
         </div>
-    <table id = 'scores'>
-         <tr id = 'top'><th class = "hidden">Frame</th></tr>
-
-    </table>
-    
+    </div>
 </div>
-</div>
-
-
-<!-- section to share rule book-->
-<div id= 'rules' class = 'hidden normal_text'>
-<h1>The rules of the game</h1>
-
-<ol>
-    <li>Set up a throwing line/mark to throw from
-        <img class ='instruction' src ="instructions1.jpg">
-    </li>
-    <li>Set up the Molkky blocks as pictured on the bag 1.5m from you throwing line 
-        <img class ='instruction' src ="instructions2.jpg">
-    </li>
-    <li>Take it in turns to throw the m&#246;lkky at the numbered blocks
-        <img class ='instruction' src ="instructions3.jpg">
-        <ul>
-        <li>If you knock over 1 block you get the points written on it </li>
-        <li>If you knock over multiple blocks you get a point for each blocked knocked over</li>
-        <li>If you miss you get 0</li></ul>
-    </li>
-    <li>First to 50 exactly wins, go over 50 and you get Busted back to 25
-        <img class ='instruction' src ="instructions4.jpg">
-    </li>
-    <li>3 misses in a row and you are out</li>
-</ol>
-</div>
-
-</div>
-
 
 </body>
 
@@ -182,7 +198,10 @@ new_player.addEventListener('click', ()=>{
     input.setSelectionRange(0, 0);
     input.focus();
     var r = document.querySelector(':root');
-    r.style.setProperty('--maxfont', `${15/(players.length+1)}vw`);
+    if(players.length > 5){
+    r.style.setProperty('--maxfont', `${15/(players.length)}vw`);
+    }
+
     //window.alert(players);
     //window.alert(players);
     document.getElementById('top').innerHTML='<thead><th class = "heads frame_no hidden">Frame</th>';
@@ -194,8 +213,8 @@ document.getElementById('top').innerHTML+='</thead>';
 
 start_reset.addEventListener('click',()=>{
     //window.alert('hi');
-    var r = document.querySelector(':root');
-    r.style.setProperty('--inputwidth', `${90/(players.length)}vw`);
+    //var r = document.querySelector(':root');
+    //r.style.setProperty('--inputwidth', `${80/(players.length)}vw;`);
     //r.style.setProperty('--maxfont', `${25/(players.length+1)}vw`);
 
     if (state_flag == 0){
@@ -205,7 +224,7 @@ start_reset.addEventListener('click',()=>{
     for(let j = 1;j<=26;j++){
        table_string += `<tr><td class = 'frame_no'>${j}</td>`
        for(let i=0;i<players.length;i++){
-        table_string += `<td class = 'score_input'><input type = 'number' class = 'score_input ${players[i]+i}' id = ${i}${j}></td>`;
+        table_string += `<td class = 'score_input_a'><input min = '0' max = '50' type = 'number'   class = 'score_input ${players[i]+i}' id = ${i}${j}></td>`;
        }; 
        table_string += '</tr>';     
     };
